@@ -1,0 +1,169 @@
+$breakpoint767: 767px;
+$breakpoint480: 480px;
+
+.chat {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #23272D;
+}
+
+.error_color {
+  color: red;
+}
+
+.error_border {
+  border: 1px solid red !important;
+}
+
+p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0 0 0;
+}
+
+.column__row {
+  flex: 1 1 100%;
+}
+
+.username__input {
+  padding: 15px 5px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 20px;
+  border: 2px solid rgb(207, 205, 205);
+}
+
+.nextStep {
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 24px;
+  border-radius: 20px;
+  border: 2px solid rgb(207, 205, 205);
+  letter-spacing: 0.8px;
+  line-height: 150%;
+  transition: all 0.4s ease;
+
+  &:not(:disabled):hover {
+    cursor: pointer;
+    background: black;
+    color: white;
+  }
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  background: #0060FF;
+  height: 700px;
+  padding: 30px 40px;
+  margin-top: 30px;
+  border-radius: 20px;
+  position: relative;
+  justify-content: flex-end;
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+.wrapper__message {
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 20px;
+  word-wrap: break-word;
+  border-radius: 15px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.username {
+  font-size: 22px;
+  color: #24A8FF;
+  margin-bottom: 5px;
+  font-weight: 500;
+  max-width: 50%;
+}
+
+.message__text {
+  font-size: 19px;
+  border-radius: 0 20px 20px 20px;
+  background: #24A8FF;
+  padding: 20px 20px 20px 10px;
+  max-width: 50%;
+}
+
+.left {
+  align-items: flex-end;
+
+  .username {
+    align-self: flex-end;
+  }
+
+  .message__text {
+    border-radius: 20px 0 20px 20px;
+    padding: 20px 10px 20px 20px;
+  }
+}
+
+.chat__form {
+  margin-top: 30px;
+
+  .send {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    margin-top: 20px;
+  }
+
+  input {
+    border-radius: 10px 0 0 10px;
+  }
+
+  button {
+    border-radius: 0 10px 10px 0;
+    background: #267412;
+    cursor: pointer;
+
+    &:hover {
+      background: lighten(#267412, 10%);
+    }
+  }
+
+  input, button {
+    width: 100%;
+    font-size: 30px;
+    padding: 10px;
+    border: none;
+  }
+}

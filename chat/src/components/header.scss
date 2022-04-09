@@ -1,0 +1,26 @@
+header {
+  background: rgb(19, 31, 70);
+  padding: 5px 0;
+}
+
+.menu_links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.menu__link_item {
+  font-size: 30px;
+  font-weight: 800;
+  padding: 10px 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgb(32, 49, 105);
+  }
+}
+
+.menu__link {
+  color: white;
+}

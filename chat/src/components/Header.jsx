@@ -1,5 +1,4 @@
-import React, { useContext, useCallback } from "react";
-import { ChangeCurrentStep } from "./context";
+import React, { useCallback } from "react";
 import { chatStages } from "../models";
 import "./header.scss";
 
@@ -16,9 +15,7 @@ const changeStagesData = [
   },
 ];
 
-export const Header = () => {
-  const { changeStep } = useContext(ChangeCurrentStep);
-
+const Header = ({ changeStep }) => {
   const handleChangeStage = useCallback(
     (step) => {
       changeStep(step);
@@ -48,3 +45,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default React.memo(Header);

@@ -1,28 +1,30 @@
-import React from "react";
-import { Chat } from "./components/Chat/Chat";
-import { Header } from "./components/Header";
-import { About } from "./components/About/About";
+import React, { useState, useMemo, useCallback } from "react";
+import getComponent from "./helpers/getScreen";
+import Header from "./components/Header";
 import { ChangeCurrentStep } from "./components/context";
 import { chatStages } from "./models";
 import "./index.scss";
 
 function App() {
-  const [currentStep, setCurrentStep] = React.useState(chatStages.about);
+  const [currentStep, setCurrentStep] = useState(chatStages.about);
 
-  const handleClickChangeStep = (step) => {
+  const ScreenComponent = useMemo(() => {
+    return getComponent(currentStep);
+  }, [currentStep]);
+
+  const handleChangeStep = useCallback((step) => {
     setCurrentStep(step);
-  };
+  }, [setCurrentStep]);
 
   const changeCurrentStepProvider = {
-    changeStep: handleClickChangeStep,
+    changeStep: handleChangeStep,
   };
 
   return (
     <ChangeCurrentStep.Provider value={changeCurrentStepProvider}>
       <div className="wrapper">
-        <Header />
-        {currentStep === chatStages.chat && <Chat />}
-        {currentStep === chatStages.about && <About />}
+        <Header changeStep={handleChangeStep} />
+        <ScreenComponent />
       </div>
     </ChangeCurrentStep.Provider>
   );
